@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result{
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ff6347;
+            margin-bottom: 20px;
+        }
+
+        #fun {
+            background-color: #ff6347;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #fun:hover {
+            background-color: #e5533c;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            overflow-y: auto;
+            height: 200px;
+        }
+
+        p {
+            margin: 5px 0;
+            padding: 3px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        p:nth-child(even) {
+            background-color: #e8f5e9;
+        }
+
+        p:nth-child(odd) {
+            background-color: #fbe9e7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pizza Delivery System</h1>
+    <button id="fun">Place order now</button>
+    <div id="result"></div>
+
+    <script>
+        function pizza(res) {
+            let gg=document.getElementById("result");
+            gg.innerHTML+=`<p>${res}</p>`
+            
+        }
+        function fun0(callback) {
+            setTimeout(()=>{
+                pizza("Place order")
+                callback()
+            },1000)
+        }
+        function fun1(callback) {
+            setTimeout(()=>{
+                pizza("Prepare pizza")
+                callback()
+            },2000)
+        }
+        function fun2(callback) {
+            setTimeout(()=>{
+                pizza(" Bake pizza ")
+                callback()
+            },3000)
+        }
+        function fun3(callback) {
+            setTimeout(()=>{
+                pizza(" Pack pizza ")
+                callback()
+            },4000)
+        }
+        function fun4() {
+            setTimeout(()=>{
+                pizza(" Delivered pizza! ")
+                callback()
+            },1000)
+           
+        }
+        document.getElementById("fun").addEventListener("click",function(){
+            pizza("starting pizza...")
+            fun0(()=>{
+                fun1(()=>{
+                    fun2(()=>{
+                        fun3(()=>{
+                            fun4(()=>{
+                                pizza("Pizza delivery complete!")
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    </script>
+</body>
+</html>
